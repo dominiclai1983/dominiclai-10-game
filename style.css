@@ -8,3 +8,8 @@ body{
   background: linear-gradient(#fde7b5, #f7d18b);
   background-repeat: no-repeat;
 }
+
+.title{
+  background-color: white;
+  max-width: 650px;
+}
