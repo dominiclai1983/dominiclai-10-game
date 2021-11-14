@@ -75,11 +75,19 @@
           <div class="row no-gutters">
             <div class="col-12 text-center my-1">
               Number Range
-              <div class="btn-group text-center" role="group" aria-label="First group">
-                <button type="button" class="btn btn-info lv1">10</button>
-                <button type="button" class="btn btn-info lv2">20</button>
-                <button type="button" class="btn btn-info lv3">30</button>
-                <button type="button" class="btn btn-info lv4">45</button>
+              <div class="btn-group btn-group-toggle text-center" data-toggle="buttons">
+                <label class="btn btn-info active">
+                <input type="radio" name="options" class="option1" autocomplete="off" checked>10
+                </label>
+                <label class="btn btn-info">
+                <input type="radio" name="options" class="option2" autocomplete="off">20
+                </label>
+                <label class="btn btn-info">
+                <input type="radio" name="options" class="option3" autocomplete="off">30
+                </label>                
+                <label class="btn btn-info">
+                <input type="radio" name="options" class="option4" autocomplete="off">45
+                </label>  
               </div>
             </div>
           </div>
