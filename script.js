@@ -3,6 +3,7 @@ $(document).ready(function(){
   //control the Arithmetic button group check or uncheck 
   $('input[type="checkbox"]').on('click', function(){
     $(this).closest('label').toggleClass("active");
+    console.log($('label.ari-btn').hasClass('active'));
 
   //contorl the play button active, if any button Arithmetic button group is checked
     if($('label.ari-btn').hasClass('active')){
