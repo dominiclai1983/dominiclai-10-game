@@ -1,4 +1,13 @@
+var genRanNum = function(){
+  var h1 = Math.floor(Math.random() * 10);
+  var h2 = Math.floor(Math.random() * 10);
+
+  console.log(h1);
+  console.log(h2);
+}
+
 $(document).ready(function(){
+  genRanNum();
 
   //control the Arithmetic button group check or uncheck 
   $('input[type="checkbox"]').on('click', function(){
@@ -12,7 +21,5 @@ $(document).ready(function(){
       $('#play-btn').prop('disabled', true);
     }
   })
-
-  
 
 })
