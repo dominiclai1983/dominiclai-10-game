@@ -87,9 +87,9 @@ $(document).ready(function(){
     genRanArith();
   })
 
-  $('button[type="button"].btn').on('click', function(){
-    $('button[type="button"].btn').removeClass('active');
-    $(this).addClass('active');
+  $('input[type="radio"]').on('click', function(){
+    $('input[type="radio"]').closest('label').removeClass('active');
+    $(this).closest('label').addClass('active');
     var test = genRanNum();
     console.log(test);
   })
