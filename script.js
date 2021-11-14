@@ -24,13 +24,44 @@ var genRanNum = function(){
   return [h1, h2];
 }
 
+var genRanArith = function(){
+  var newArray = ["+", "-", "*", "/"];
+  
+  var add = (!$('.ari-btn.add-btn').hasClass('active'));
+  var sub = (!$('.ari-btn.sub-btn').hasClass('active'));
+  var multi = (!$('.ari-btn.multi-btn').hasClass('active'));
+  var div = (!$('.ari-btn.div-btn').hasClass('active'));
+
+  if(sub){
+    var index = newArray.indexOf("+");
+    newArray.splice(index,1);
+  }if(add){
+    var index = newArray.indexOf("-");
+    newArray.splice(index,1);
+  }if(multi){
+    var index = newArray.indexOf("*");
+    newArray.splice(index,1);
+  }if(div){
+    var index = newArray.indexOf("/");
+    newArray.splice(index,1);
+  }
+
+  console.log(newArray);
+  var sign = newArray[Math.floor(Math.random() * newArray.length)];
+  console.log(sign);
+
+  return sign;
+}
+
 $(document).ready(function(){
   genRanNum();
 
   //control the Arithmetic button group check or uncheck 
   $('input[type="checkbox"]').on('click', function(){
     $(this).closest('label').toggleClass('active');
+    /*
     console.log($('label.ari-btn').hasClass('active'));
+    */
 
   //contorl the play button active, if any button Arithmetic button group is checked
     if($('label.ari-btn').hasClass('active')){
@@ -38,6 +69,8 @@ $(document).ready(function(){
     }else{
       $('#play-btn').prop('disabled', true);
     }
+
+    genRanArith();
   })
 
   $('button[type="button"].btn').on('click', function(){
