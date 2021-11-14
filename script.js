@@ -21,7 +21,7 @@ var genRanNum = function(){
     h2 = h2 * 2;    
   }else if(l3){
     h1 = h1 * 3;
-    h2 = h2 * 3;  
+    h2 = h2 * 3;
   }else if(l4){
     h1 = Math.floor(h1 * 4.5);
     h2 = Math.floor(h2 * 4.5);  
@@ -40,10 +40,10 @@ var genRanArith = function(){
   var div = (!$('.ari-btn.div-btn').hasClass('active'));
 
   if(sub){
-    var index = newArray.indexOf("+");
+    var index = newArray.indexOf("-");
     newArray.splice(index,1);
   }if(add){
-    var index = newArray.indexOf("-");
+    var index = newArray.indexOf("+");
     newArray.splice(index,1);
   }if(multi){
     var index = newArray.indexOf("*");
@@ -52,9 +52,9 @@ var genRanArith = function(){
     var index = newArray.indexOf("/");
     newArray.splice(index,1);
   }
-  /*
+  
   console.log(newArray);
-  */
+  
   var sign = newArray[Math.floor(Math.random() * newArray.length)];
   
   console.log(sign);
@@ -62,13 +62,17 @@ var genRanArith = function(){
   return sign;
 }
 
+//function to display the question and return the answer to the question
 var displayQuest = function(){
   $('.game-play').empty();
   var num = genRanNum();
   console.log(num)
   var signs = genRanArith();
   console.log(signs);
+  var checker = (num[0] - num[1]) > 0;
+  console.log(checker)
   $('.game-play').append('<p>' + num[0] + " " + signs + " " + num[1] + '</p>');
+  
 }
 
 $(document).ready(function(){
