@@ -57,8 +57,14 @@ var genRanArith = function(){
 //function to display the question and return the answer to the question
 var displayQuest = function(){
   $('.game-play').empty();
+  
+  do{
   var num = genRanNum();
   var signs = genRanArith();
+  console.log('dis '+num);
+  console.log('dis '+signs);
+  }while((signs == '/') && (num[0] % num[1] != 0));
+
   var checker = (num[0] - num[1]) > 0;
   //ensure the answer is +ve when the sign is -
   var answer;
@@ -77,6 +83,8 @@ var displayQuest = function(){
     answer = num[0] + num[1];
   }else if(signs == '*'){
     answer = num[0] * num[1];
+  }else if(signs == '/'){
+    answer = num[0] / num[1];
   }
 
   console.log('answer'+answer);
