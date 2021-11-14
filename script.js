@@ -71,8 +71,16 @@ var displayQuest = function(){
   console.log(signs);
   var checker = (num[0] - num[1]) > 0;
   console.log(checker)
-  $('.game-play').append('<p>' + num[0] + " " + signs + " " + num[1] + '</p>');
-  
+  //ensure the answer is +ve when the sign is -
+  if(signs == '-'){
+    if(checker){
+      $('.game-play').append('<p>' + num[0] + " " + signs + " " + num[1] + '</p>');
+    }else if(!(checker)){
+      $('.game-play').append('<p>' + num[1] + " " + signs + " " + num[0] + '</p>');
+    }
+  }else{
+    $('.game-play').append('<p>' + num[0] + " " + signs + " " + num[1] + '</p>');
+  }
 }
 
 $(document).ready(function(){
