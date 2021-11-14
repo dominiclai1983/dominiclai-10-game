@@ -13,3 +13,25 @@ body{
   background-color: white;
   max-width: 650px;
 }
+
+.game{
+  background-color: white;
+  max-width: 550px;
+}
+
+.top-icon, .my-text{
+    color: rgba(75, 75, 75, 0.9);
+    vertical-align: middle;
+}
+
+.ari-btn{
+  width: 50px;
+}
+
+#btn-arit{
+  width: 60px;
+}
+
+#btn-start{
+  width: 145px;
+}
