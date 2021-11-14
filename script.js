@@ -3,10 +3,15 @@ var genRanNum = function(){
   var h1 = Math.floor(Math.random() * 10) + 1;
   var h2 = Math.floor(Math.random() * 10) + 1;
 
-  var l1 = $('button[type="button"].lv1').hasClass('active');
-  var l2 = $('button[type="button"].lv2').hasClass('active');
-  var l3 = $('button[type="button"].lv3').hasClass('active');
-  var l4 = $('button[type="button"].lv4').hasClass('active');
+  var l1 = $('.lv1').hasClass('active');
+  var l2 = $('.lv2').hasClass('active');
+  var l3 = $('.lv3').hasClass('active');
+  var l4 = $('.lv4').hasClass('active');
+
+  console.log(l1+" l1");
+  console.log(l2+" l2");
+  console.log(l3+" l3");
+  console.log(l4+" l4");  
 
   if(l1){
     h1 = h1 * 1;
