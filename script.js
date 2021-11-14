@@ -1,3 +1,4 @@
+//function to generate a pair of random number according to number range button
 var genRanNum = function(){
   var h1 = Math.floor(Math.random() * 10) + 1;
   var h2 = Math.floor(Math.random() * 10) + 1;
@@ -24,6 +25,7 @@ var genRanNum = function(){
   return [h1, h2];
 }
 
+//function to generate random arithmetic sign according to ari btn is checked or not
 var genRanArith = function(){
   var newArray = ["+", "-", "*", "/"];
   
@@ -76,8 +78,10 @@ $(document).ready(function(){
   $('button[type="button"].btn').on('click', function(){
     $('button[type="button"].btn').removeClass('active');
     $(this).addClass('active');
-    genRanNum();
+    var test = genRanNum();
+    console.log(test);
   })
+
 
   
 })
