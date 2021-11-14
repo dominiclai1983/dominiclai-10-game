@@ -88,6 +88,7 @@ var displayQuest = function(){
   }
 
   console.log('answer'+answer);
+  return answer;
 }
 
 $(document).ready(function(){
@@ -121,5 +122,20 @@ $(document).ready(function(){
   $('#play-btn').on('click', function(){
     displayQuest();
   })
+
+  var input; 
+
+  $("#button-addon1").on('click', function(){
+      input = $('.form-control').val();
+      $('.form-control').val('');
+  })
   
+  console.log(input);
 })
+
+/*
+getting the input from answer field
+return the answer bt either click answer button or enter
+finally adding the timer 
+if possible, adding the progressive bar
+*/
