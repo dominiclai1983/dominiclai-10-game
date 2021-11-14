@@ -64,6 +64,7 @@ var displayQuest = function(){
   console.log('dis '+num);
   console.log('dis '+signs);
   }while((signs == '/') && (num[0] % num[1] != 0));
+  //the number would generate again if the question is div and the ans is not whole number
 
   var checker = (num[0] - num[1]) > 0;
   //ensure the answer is +ve when the sign is -
@@ -142,8 +143,6 @@ $(document).ready(function(){
 })
 
 /*
-getting the input from answer field
-return the answer bt either click answer button or enter
 finally adding the timer 
 if possible, adding the progressive bar
 */
