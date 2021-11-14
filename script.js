@@ -130,6 +130,14 @@ $(document).ready(function(){
       $('.form-control').val('');
   })
   
+  //input field would listen to the "enter" event
+  $(".form-control").on('keypress', function(key){
+      if(key.which == 13){
+      var input = $(this).val();
+      $(this).val('');
+    }
+  })
+  
   console.log(input);
 })
 
