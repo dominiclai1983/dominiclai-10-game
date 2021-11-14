@@ -47,12 +47,23 @@ var genRanArith = function(){
     var index = newArray.indexOf("/");
     newArray.splice(index,1);
   }
-
+  /*
   console.log(newArray);
+  */
   var sign = newArray[Math.floor(Math.random() * newArray.length)];
+  
   console.log(sign);
-
+  
   return sign;
+}
+
+var displayQuest = function(){
+  $('.game-play').empty();
+  var num = genRanNum();
+  console.log(num)
+  var signs = genRanArith();
+  console.log(signs);
+  $('.game-play').append('<p>' + num[0] + " " + signs + " " + num[1] + '</p>');
 }
 
 $(document).ready(function(){
@@ -62,6 +73,7 @@ $(document).ready(function(){
   $('input[type="checkbox"]').on('click', function(){
     $(this).closest('label').toggleClass('active');
     /*
+    checker for ari btn has active class or not
     console.log($('label.ari-btn').hasClass('active'));
     */
 
@@ -82,6 +94,8 @@ $(document).ready(function(){
     console.log(test);
   })
 
-
+  $('#play-btn').on('click', function(){
+    displayQuest();
+  })
   
 })
