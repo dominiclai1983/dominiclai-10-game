@@ -6,12 +6,7 @@ var genRanNum = function(){
   var l1 = $('.lv1').hasClass('active');
   var l2 = $('.lv2').hasClass('active');
   var l3 = $('.lv3').hasClass('active');
-  var l4 = $('.lv4').hasClass('active');
-
-  console.log(l1+" l1");
-  console.log(l2+" l2");
-  console.log(l3+" l3");
-  console.log(l4+" l4");  
+  var l4 = $('.lv4').hasClass('active'); 
 
   if(l1){
     h1 = h1 * 1;
@@ -52,13 +47,10 @@ var genRanArith = function(){
     var index = newArray.indexOf("/");
     newArray.splice(index,1);
   }
-  
-  console.log(newArray);
-  
+
   var sign = newArray[Math.floor(Math.random() * newArray.length)];
-  
+  console.log(newArray);
   console.log(sign);
-  
   return sign;
 }
 
@@ -66,21 +58,28 @@ var genRanArith = function(){
 var displayQuest = function(){
   $('.game-play').empty();
   var num = genRanNum();
-  console.log(num)
   var signs = genRanArith();
-  console.log(signs);
   var checker = (num[0] - num[1]) > 0;
-  console.log(checker)
   //ensure the answer is +ve when the sign is -
+  var answer;
   if(signs == '-'){
     if(checker){
       $('.game-play').append('<p>' + num[0] + " " + signs + " " + num[1] + '</p>');
     }else if(!(checker)){
       $('.game-play').append('<p>' + num[1] + " " + signs + " " + num[0] + '</p>');
     }
+    answer = Math.abs(num[0] - num[1]);
   }else{
     $('.game-play').append('<p>' + num[0] + " " + signs + " " + num[1] + '</p>');
   }
+  
+  if(signs == '+'){
+    answer = num[0] + num[1];
+  }else if(signs == '*'){
+    answer = num[0] * num[1];
+  }
+
+  console.log('answer'+answer);
 }
 
 $(document).ready(function(){
