@@ -92,6 +92,8 @@ var displayQuest = function(){
   return answer;
 }
 
+
+
 $(document).ready(function(){
   genRanNum();
 
@@ -120,8 +122,24 @@ $(document).ready(function(){
     console.log(test);
   })
 
+  var count = 10;
+
+var counter = function(){
+	setInterval(myTimer, 1000);
+}
+
+var myTimer = function() {
+  count = count -1;
+  if(count < 0)
+  {
+  	clearInterval(counter);
+    return;
+  }
+  $('#time').html('Time Remaining: ' + count + ' sec');
+}
+
   $('#play-btn').on('click', function(){
-    displayQuest();
+    counter();
   })
 
   var input; 
