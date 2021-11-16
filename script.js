@@ -49,8 +49,7 @@ var genRanArith = function(){
   }
 
   var sign = newArray[Math.floor(Math.random() * newArray.length)];
-  console.log(newArray);
-  console.log(sign);
+
   return sign;
 }
 
@@ -61,8 +60,6 @@ var displayQuest = function(){
   do{
   var num = genRanNum();
   var signs = genRanArith();
-  console.log('dis '+num);
-  console.log('dis '+signs);
   }while((signs == '/') && (num[0] % num[1] != 0));
   //the number would generate again if the question is div and the ans is not whole number
 
@@ -92,10 +89,26 @@ var displayQuest = function(){
   return answer;
 }
 
-
-
 $(document).ready(function(){
-  genRanNum();
+
+    var count = 10;
+
+    var counter = function(){
+	    setInterval(myTimer, 1000);
+      console.log('counter'+count)
+    }
+
+    var myTimer = function(){
+      count = count -1;
+      if(count < 0){
+  	    clearInterval(counter);
+        $('.game-play').empty();
+        $('.game-play').append('<p>GAME OVER!</p>');
+        return;
+      }   
+      $('#time').html('Time Remaining: ' + count + ' sec');
+      console.log('myTimer'+count)
+    }
 
   //control the Arithmetic button group check or uncheck 
   $('input[type="checkbox"]').on('click', function(){
@@ -113,51 +126,53 @@ $(document).ready(function(){
     }
 
     genRanArith();
-  })
+  });
+
+    var play;
+    var input; 
 
   $('input[type="radio"]').on('click', function(){
     $('input[type="radio"]').closest('label').removeClass('active');
     $(this).closest('label').addClass('active');
     var test = genRanNum();
     console.log(test);
-  })
-
-  var count = 10;
-
-var counter = function(){
-	setInterval(myTimer, 1000);
-}
-
-var myTimer = function() {
-  count = count -1;
-  if(count < 0)
-  {
-  	clearInterval(counter);
-    return;
-  }
-  $('#time').html('Time Remaining: ' + count + ' sec');
-}
+  });
 
   $('#play-btn').on('click', function(){
     counter();
+    play = displayQuest();
+    console.log('play'+play)
   })
 
-  var input; 
+  
+
+  var checkAnswer = function(userInput, questAns){
+    var ansChecker = (userInput === questAns);
+    console.log(userInput === questAns)
+    if(ansChecker && count >= 0){
+      play = displayQuest();
+      count = count +1;
+      console.log('checkeranswer'+count);
+    }
+  }
 
   $("#button-addon1").on('click', function(){
-      input = $('.form-control').val();
+      input = parseInt($('.form-control').val());
       $('.form-control').val('');
-  })
+      console.log('input'+input);
+      checkAnswer(input, play);
+  });
   
   //input field would listen to the "enter" event
   $(".form-control").on('keypress', function(key){
       if(key.which == 13){
-      var input = $(this).val();
+      input = parseInt($(this).val());
       $(this).val('');
+      console.log('input'+input);
+      checkAnswer(input, play);
     }
-  })
-  
-  console.log(input);
+  });
+
 })
 
 /*
