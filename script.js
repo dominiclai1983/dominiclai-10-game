@@ -93,7 +93,8 @@ var displayQuest = function(){
 
 $(document).ready(function(){
 
-    var count = 0;//set the sec counter as 0 at the begining
+    var count;//set the sec counter as 0 at the begining
+    var score;
 
     var counter = function(){
 	    setInterval(myTimer, 1000);
@@ -132,7 +133,6 @@ $(document).ready(function(){
 
   var play;
   var input;
-  var score = 0;
   //var play stores the answer from question, var input stores the answer from user's input, var score stores the store of the player
 
   //radio button group for user to choose the number range
@@ -148,7 +148,10 @@ $(document).ready(function(){
   //the game begin when the user click "play game" btn
   $('#play-btn').on('click', function(){
     //once play game button click, then the timer is set at 10 sec by setting count = 10;
+    score = 0;
     count = 10;
+    $('#time').html('Time Remaining: ' + count + ' sec');
+    $('#score').html('|| Score: ' + score);
     counter();
     play = displayQuest();
     console.log('play'+play);
