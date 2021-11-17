@@ -125,12 +125,14 @@ $(document).ready(function(){
     }else{
       $('#play-btn').prop('disabled', true);
     }
-
+    /*
     genRanArith();
+    */
   });
 
-    var play;
-    var input; 
+  var play;
+  var input; 
+  //play store the answer from question, input store the answer from user's input 
 
   //radio button group for user to choose the number range
   $('input[type="radio"]').on('click', function(){
@@ -148,13 +150,13 @@ $(document).ready(function(){
     count = 10;
     counter();
     play = displayQuest();
-    console.log('play'+play)
+    console.log('play'+play);
   });
 
   //a function to check the input == the answer of the questions
   var checkAnswer = function(userInput, questAns){
     var ansChecker = (userInput === questAns);
-    console.log(userInput === questAns)
+    console.log(userInput === questAns);
     if(ansChecker && count >= 0){
       play = displayQuest();
       //add plus 2 due to the user's eye cannot see the digit plus 1;
