@@ -108,6 +108,7 @@ $(document).ready(function(){
         $('.game-play').append('<h2 class="text-danger">GAME OVER!</h2');
         //making the game play btn active again when the game is over
         $('#play-btn').prop('disabled', false);
+        $('button.ans-btn').prop('disabled', true);
         return;
       }   
       $('#time').html('Time Remaining: ' + count + ' sec');
@@ -151,6 +152,7 @@ $(document).ready(function(){
   $('#play-btn').on('click', function(){
     //making the play game disable during the game
     $('#play-btn').prop('disabled', true);
+    $('button.ans-btn').removeAttr('disabled');
     //once play game button click, then the timer is set at 10 sec by setting count = 10;
     score = 0;
     count = 10;
