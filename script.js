@@ -105,6 +105,7 @@ $(document).ready(function(){
         $('.game-play').append('<h2 class="text-danger">GAME OVER!</h2');
         //making the game play btn active again when the game is over
         $('#play-btn').prop('disabled', false);
+        $('button.ans-btn').prop('disabled', true);
         return;
       }
       $('#time').html('Time Remaining: ' + count + ' sec');
