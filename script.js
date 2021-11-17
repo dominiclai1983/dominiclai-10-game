@@ -93,7 +93,7 @@ var displayQuest = function(){
 
 $(document).ready(function(){
 
-    var count;//set the sec counter as 0 at the begining
+    var count = 0;//set the sec counter as 0 at the begining
     var score;
 
     var counter = function(){
@@ -106,6 +106,7 @@ $(document).ready(function(){
   	    clearInterval(counter);
         $('.game-play').empty();
         $('.game-play').append('<h2 class="text-danger">GAME OVER!</h2');
+        $('#play-btn').prop('disabled', false);
         return;
       }   
       $('#time').html('Time Remaining: ' + count + ' sec');
@@ -148,6 +149,7 @@ $(document).ready(function(){
   //the game begin when the user click "play game" btn
   $('#play-btn').on('click', function(){
     //once play game button click, then the timer is set at 10 sec by setting count = 10;
+    $('#play-btn').prop('disabled', true);
     score = 0;
     count = 10;
     $('#time').html('Time Remaining: ' + count + ' sec');
