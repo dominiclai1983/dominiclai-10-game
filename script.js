@@ -104,7 +104,7 @@ $(document).ready(function(){
       if(count < 0){
   	    clearInterval(counter);
         $('.game-play').empty();
-        $('.game-play').append('<h1 class="text-danger">GAME OVER!</h1>');
+        $('.game-play').append('<h2 class="text-danger">GAME OVER!</h2');
         return;
       }   
       $('#time').html('Time Remaining: ' + count + ' sec');
