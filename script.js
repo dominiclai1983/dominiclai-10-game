@@ -131,8 +131,9 @@ $(document).ready(function(){
   });
 
   var play;
-  var input; 
-  //var play stores the answer from question, var input stores the answer from user's input 
+  var input;
+  var score = 0;
+  //var play stores the answer from question, var input stores the answer from user's input, var score stores the store of the player
 
   //radio button group for user to choose the number range
   $('input[type="radio"]').on('click', function(){
@@ -153,7 +154,7 @@ $(document).ready(function(){
     console.log('play'+play);
   });
 
-  //a function to check the input == the answer of the questions
+  //function to check the input == the answer of the questions, also count the score
   var checkAnswer = function(userInput, questAns){
     var ansChecker = (userInput === questAns);
     console.log(userInput === questAns);
@@ -161,6 +162,8 @@ $(document).ready(function(){
       play = displayQuest();
       //add plus 2 due to the user's eye cannot see the digit plus 1;
       count = count + 2;
+      score = score + 1;
+      $('#score').html('|| Score: ' + score);
     }
   }
 
