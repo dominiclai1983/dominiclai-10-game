@@ -106,6 +106,7 @@ $(document).ready(function(){
   	    clearInterval(counter);
         $('.game-play').empty();
         $('.game-play').append('<h2 class="text-danger">GAME OVER!</h2');
+        //making the game play btn active again when the game is over
         $('#play-btn').prop('disabled', false);
         return;
       }   
@@ -134,7 +135,7 @@ $(document).ready(function(){
 
   var play;
   var input;
-  //var play stores the answer from question, var input stores the answer from user's input, var score stores the store of the player
+  //var play stores the answer from question, var input stores the answer from user's input, 
 
   //radio button group for user to choose the number range
   $('input[type="radio"]').on('click', function(){
@@ -148,8 +149,9 @@ $(document).ready(function(){
 
   //the game begin when the user click "play game" btn
   $('#play-btn').on('click', function(){
-    //once play game button click, then the timer is set at 10 sec by setting count = 10;
+    //making the play game disable during the game
     $('#play-btn').prop('disabled', true);
+    //once play game button click, then the timer is set at 10 sec by setting count = 10;
     score = 0;
     count = 10;
     $('#time').html('Time Remaining: ' + count + ' sec');
