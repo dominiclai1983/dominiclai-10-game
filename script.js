@@ -34,7 +34,7 @@ var genRanArith = function(){
   var multi = (!$('.ari-btn.multi-btn').hasClass('active'));
   var div = (!$('.ari-btn.div-btn').hasClass('active'));
 
-  //if the button is uncheck, then the respective sign would remove from array
+  //if the button is uncheck, then the respective sign would be removed from the array
   if(sub){
     var index = newArray.indexOf("-");
     newArray.splice(index,1);
@@ -48,7 +48,7 @@ var genRanArith = function(){
     var index = newArray.indexOf("/");
     newArray.splice(index,1);
   }
-
+  console.log(newArray);
   //randomly generate the sign within new array 
   var sign = newArray[Math.floor(Math.random() * newArray.length)];
 
@@ -125,14 +125,14 @@ $(document).ready(function(){
     }else{
       $('#play-btn').prop('disabled', true);
     }
-    /*
+    
     genRanArith();
-    */
+    
   });
 
   var play;
   var input; 
-  //play store the answer from question, input store the answer from user's input 
+  //var play stores the answer from question, var input stores the answer from user's input 
 
   //radio button group for user to choose the number range
   $('input[type="radio"]').on('click', function(){
