@@ -34,6 +34,7 @@ var genRanArith = function(){
   var multi = (!$('.ari-btn.multi-btn').hasClass('active'));
   var div = (!$('.ari-btn.div-btn').hasClass('active'));
 
+  //if the button is uncheck, then the respective sign would remove from array
   if(sub){
     var index = newArray.indexOf("-");
     newArray.splice(index,1);
@@ -48,6 +49,7 @@ var genRanArith = function(){
     newArray.splice(index,1);
   }
 
+  //randomly generate the sign within new array 
   var sign = newArray[Math.floor(Math.random() * newArray.length)];
 
   return sign;
@@ -64,17 +66,17 @@ var displayQuest = function(){
   //the number would generate again if the question is div and the ans is not whole number
 
   var checker = (num[0] - num[1]) > 0;
-  //ensure the answer is +ve when the sign is -
+  //ensure the answer is +ve when the sign is '-'
   var answer;
   if(signs == '-'){
     if(checker){
-      $('.game-play').append('<p>' + num[0] + " " + signs + " " + num[1] + '</p>');
+      $('.game-play').append('<h3>' + num[0] + " " + signs + " " + num[1] + ' =? </h3>');
     }else if(!(checker)){
-      $('.game-play').append('<p>' + num[1] + " " + signs + " " + num[0] + '</p>');
+      $('.game-play').append('<h3>' + num[1] + " " + signs + " " + num[0] + ' =? </h3>');
     }
-    answer = Math.abs(num[0] - num[1]);
+    answer = Math.abs(num[0] - num[1]);//answer for '-' quest
   }else{
-    $('.game-play').append('<p>' + num[0] + " " + signs + " " + num[1] + '</p>');
+    $('.game-play').append('<h3>' + num[0] + " " + signs + " " + num[1] + ' =? </h3>');
   }
   
   if(signs == '+'){
@@ -91,11 +93,10 @@ var displayQuest = function(){
 
 $(document).ready(function(){
 
-    var count = 10;
+    var count = 0;//set the sec counter as 0 at the begining
 
     var counter = function(){
 	    setInterval(myTimer, 1000);
-      console.log('counter'+count)
     }
 
     var myTimer = function(){
@@ -103,7 +104,7 @@ $(document).ready(function(){
       if(count < 0){
   	    clearInterval(counter);
         $('.game-play').empty();
-        $('.game-play').append('<p>GAME OVER!</p>');
+        $('.game-play').append('<h1 class="text-danger">GAME OVER!</h1>');
         return;
       }   
       $('#time').html('Time Remaining: ' + count + ' sec');
@@ -131,31 +132,37 @@ $(document).ready(function(){
     var play;
     var input; 
 
+  //radio button group for user to choose the number range
   $('input[type="radio"]').on('click', function(){
     $('input[type="radio"]').closest('label').removeClass('active');
     $(this).closest('label').addClass('active');
+    /*
     var test = genRanNum();
     console.log(test);
+    */
   });
 
+  //the game begin when the user click "play game" btn
   $('#play-btn').on('click', function(){
+    //once play game button click, then the timer is set at 10 sec by setting count = 10;
+    count = 10;
     counter();
     play = displayQuest();
     console.log('play'+play)
-  })
+  });
 
-  
-
+  //a function to check the input == the answer of the questions
   var checkAnswer = function(userInput, questAns){
     var ansChecker = (userInput === questAns);
     console.log(userInput === questAns)
     if(ansChecker && count >= 0){
       play = displayQuest();
-      count = count +1;
-      console.log('checkeranswer'+count);
+      //add plus 2 due to the user's eye cannot see the digit plus 1;
+      count = count + 2;
     }
   }
 
+  //capture the answer if the user press answer button
   $("#button-addon1").on('click', function(){
       input = parseInt($('.form-control').val());
       $('.form-control').val('');
@@ -174,8 +181,3 @@ $(document).ready(function(){
   });
 
 })
-
-/*
-finally adding the timer 
-if possible, adding the progressive bar
-*/
