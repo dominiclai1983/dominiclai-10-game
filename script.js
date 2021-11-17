@@ -93,27 +93,24 @@ var displayQuest = function(){
 
 $(document).ready(function(){
 
-    var count = 0;//set the sec counter as 0 at the begining
-    var score;
+  var count = 0;//set the sec counter as 0 at the begining
+  var score;
 
-    var counter = function(){
-	    setInterval(myTimer, 1000);
-    }
-
-    var myTimer = function(){
-      count = count -1;
+  function counter(){
+    var interval = setInterval(function(){
+      count = count - 1;
       if(count < 0){
-  	    clearInterval(counter);
+        clearInterval(interval);
         $('.game-play').empty();
         $('.game-play').append('<h2 class="text-danger">GAME OVER!</h2');
         //making the game play btn active again when the game is over
         $('#play-btn').prop('disabled', false);
-        $('button.ans-btn').prop('disabled', true);
         return;
-      }   
+      }
       $('#time').html('Time Remaining: ' + count + ' sec');
-      console.log('myTimer'+count)
-    }
+      console.log('myTimer'+count);
+    }, 1000)
+  }
 
   //control the Arithmetic button group check or uncheck 
   $('input[type="checkbox"]').on('click', function(){
