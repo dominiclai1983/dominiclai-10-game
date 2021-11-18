@@ -4,7 +4,6 @@ html, body {
   min-height: 100% !important;
 }
 
-
 body{
   background: linear-gradient(#fde7b5, #f7d18b);
   background-repeat: no-repeat;
@@ -20,6 +19,10 @@ body{
   background-color: white;
   max-width: 600px;
   user-select: none;
+}
+
+.section-1{
+  height: 50px;
 }
 
 .top-icon, .my-text{
