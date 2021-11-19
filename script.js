@@ -70,13 +70,13 @@ var displayQuest = function(){
   var answer;
   if(signs == '-'){
     if(checker){
-      $('.game-play').append('<h3>' + num[0] + " " + signs + " " + num[1] + ' =? </h3>');
+      $('.game-play').append('<h3 class="question">' + num[0] + " " + signs + " " + num[1] + ' =?</h3>');
     }else if(!(checker)){
-      $('.game-play').append('<h3>' + num[1] + " " + signs + " " + num[0] + ' =? </h3>');
+      $('.game-play').append('<h3 class="question">' + num[1] + " " + signs + " " + num[0] + ' =?</h3>');
     }
     answer = Math.abs(num[0] - num[1]);//answer for '-' quest
   }else{
-    $('.game-play').append('<h3>' + num[0] + " " + signs + " " + num[1] + ' =? </h3>');
+    $('.game-play').append('<h3 class="question">' + num[0] + " " + signs + " " + num[1] + ' =?</h3>');
   }
   
   if(signs == '+'){
@@ -102,7 +102,7 @@ $(document).ready(function(){
       if(count < 0){
         clearInterval(interval);
         $('.game-play').empty();
-        $('.game-play').append('<h2 class="text-danger">GAME OVER!</h2>');
+        $('.game-play').append('<h2 class="text-danger text-center">GAME OVER!</h2>');
         //making the game play btn active again when the game is over
         $('#play-btn').prop('disabled', false);
         $('button.ans-btn').prop('disabled', true);

@@ -9,6 +9,10 @@ body{
   background-repeat: no-repeat;
 }
 
+.game-play, .question{
+  text-align: center !important;
+}
+
 .title{
   background-color: white;
   max-width: 650px;
@@ -18,7 +22,9 @@ body{
 .game{
   background-color: white;
   max-width: 600px;
+  /*
   user-select: none;
+  */
 }
 
 .section-1{
