@@ -70,13 +70,13 @@ var displayQuest = function(){
   var answer;
   if(signs == '-'){
     if(checker){
-      $('.game-play').append('<h3 class="question">' + num[0] + " " + signs + " " + num[1] + ' =?</h3>');
+      $('.game-play').append('<h3 class="question text-center">' + num[0] + " " + signs + " " + num[1] + ' =?</h3>');
     }else if(!(checker)){
-      $('.game-play').append('<h3 class="question">' + num[1] + " " + signs + " " + num[0] + ' =?</h3>');
+      $('.game-play').append('<h3 class="question text-center">' + num[1] + " " + signs + " " + num[0] + ' =?</h3>');
     }
     answer = Math.abs(num[0] - num[1]);//answer for '-' quest
   }else{
-    $('.game-play').append('<h3 class="question">' + num[0] + " " + signs + " " + num[1] + ' =?</h3>');
+    $('.game-play').append('<h3 class="question text-center">' + num[0] + " " + signs + " " + num[1] + ' =?</h3>');
   }
   
   if(signs == '+'){

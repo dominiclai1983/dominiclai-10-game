@@ -9,8 +9,10 @@ body{
   background-repeat: no-repeat;
 }
 
-.game-play, .question{
-  text-align: center !important;
+.game-play{
+  text-align: center;
+  margin-top: 55px;
+
 }
 
 .title{
