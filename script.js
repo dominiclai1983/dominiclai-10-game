@@ -102,7 +102,7 @@ $(document).ready(function(){
       if(count < 0){
         clearInterval(interval);
         $('.game-play').empty();
-        $('.game-play').append('<h2 class="text-danger text-center">GAME OVER!</h2>');
+        $('.game-play').append('<h2 class="text-danger question text-center">GAME OVER!</h2>');
         //making the game play btn active again when the game is over
         $('#play-btn').prop('disabled', false);
         $('button.ans-btn').prop('disabled', true);

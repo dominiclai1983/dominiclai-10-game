@@ -9,10 +9,12 @@ body{
   background-repeat: no-repeat;
 }
 
-.game-play{
-  text-align: center;
-  margin-top: 55px;
+.instruction{
+  margin-top: 25px;
+}
 
+.question{
+  margin-top: 55px;
 }
 
 .title{
