@@ -17,13 +17,7 @@ body{
   margin-top: 55px;
 }
 
-.title{
-  background-color: white;
-  max-width: 650px;
-  user-select: none;
-}
-
-.game{
+.title, .game{
   background-color: white;
   max-width: 600px;
   user-select: none;
